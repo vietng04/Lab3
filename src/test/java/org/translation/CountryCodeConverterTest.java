@@ -17,4 +17,9 @@ public class CountryCodeConverterTest {
         CountryCodeConverter converter = new CountryCodeConverter();
         assertEquals(249, converter.getNumCountries());
     }
+    @Test
+    public void fromCountry() {
+        CountryCodeConverter converter = new CountryCodeConverter();
+        assertEquals("VNM", converter.fromCountry("Viet Nam"));
+    }
 }

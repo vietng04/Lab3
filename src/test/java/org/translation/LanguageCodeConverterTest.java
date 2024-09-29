@@ -17,4 +17,10 @@ public class LanguageCodeConverterTest {
         LanguageCodeConverter converter = new LanguageCodeConverter();
         assertEquals(184, converter.getNumLanguages());
     }
+
+    @Test
+    public void toLanguageCode() {
+        LanguageCodeConverter converter = new LanguageCodeConverter();
+        assertEquals("en", converter.fromLanguage("English"));
+    }
 }

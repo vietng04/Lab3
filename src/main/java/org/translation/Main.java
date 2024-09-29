@@ -13,7 +13,7 @@ import java.util.Scanner;
  * - at any time, the user can type quit to quit the program<br/>
  */
 public class Main {
-
+    private static final String quit = "quit";
     /**
      * This is the main entry point of our Translation System!<br/>
      * A class implementing the Translator interface is created and passed into a call to runProgram.
@@ -24,8 +24,8 @@ public class Main {
         // TODO Task: once you finish the JSONTranslator,
         //            you can use it here instead of the InLabByHandTranslator
         //            to try out the whole program!
-        // Translator translator = new JSONTranslator(null);
-        Translator translator = new InLabByHandTranslator();
+        Translator translator = new JSONTranslator("sample.json");
+        // Translator translator = new InLabByHandTranslator();
 
         runProgram(translator);
     }
@@ -41,14 +41,15 @@ public class Main {
             String country = promptForCountry(translator);
             // TODO CheckStyle: The String "quit" appears 3 times in the file.
             // TODO Checkstyle: String literal expressions should be on the left side of an equals comparison
-            if (country.equals("quit")) {
+            if (quit.equals(country)) {
                 break;
             }
             // TODO Task: Once you switch promptForCountry so that it returns the country
             //            name rather than the 3-letter country code, you will need to
             //            convert it back to its 3-letter country code when calling promptForLanguage
+
             String language = promptForLanguage(translator, country);
-            if (language.equals("quit")) {
+            if (quit.equals(language)) {
                 break;
             }
             // TODO Task: Once you switch promptForLanguage so that it returns the language
